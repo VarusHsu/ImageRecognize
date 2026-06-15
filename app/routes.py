@@ -3,7 +3,6 @@ from flask import Blueprint, jsonify, render_template, request
 from app.recognition import RecognitionError, recognize_s3_image
 from app.s3 import create_upload_presigned_url
 
-
 api = Blueprint("api", __name__)
 
 

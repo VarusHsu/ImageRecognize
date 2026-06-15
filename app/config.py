@@ -1,7 +1,6 @@
 from pathlib import Path
 import tomllib
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_CONFIG_PATH = BASE_DIR / "config.toml"
 EXAMPLE_CONFIG_PATH = BASE_DIR / "config.example.toml"

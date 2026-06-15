@@ -90,7 +90,9 @@ def ensure_schema() -> None:
     if charset not in {"utf8", "utf8mb4"}:
         raise RuntimeError("MYSQL_CHARSET must be utf8 or utf8mb4")
 
-    server_engine = create_engine(build_database_url(include_database=False), future=True)
+    server_engine = create_engine(
+        build_database_url(include_database=False), future=True
+    )
     with server_engine.begin() as connection:
         connection.execute(
             text(
