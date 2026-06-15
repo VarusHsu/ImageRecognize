@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image Recognition Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="upload-panel">
+        <div class="panel-header">
+          <p class="eyebrow">Image Recognition</p>
+          <h1>图片上传</h1>
+        </div>
+
+        <form id="upload-form" class="upload-form">
+          <label class="drop-zone" for="image-input">
+            <input id="image-input" name="image" type="file" accept="image/*">
+            <span class="drop-icon">+</span>
+            <span class="drop-title">选择图片</span>
+            <span class="drop-meta">支持 JPG、PNG、WebP 等图片格式</span>
+          </label>
+
+          <div class="preview-wrap" aria-live="polite">
+            <img id="preview" class="preview" alt="">
+            <div id="empty-preview" class="empty-preview">预览区</div>
+          </div>
+
+          <button id="upload-button" type="submit" disabled>上传到 S3</button>
+        </form>
+      </section>
+
+      <aside class="status-panel">
+        <h2>处理状态</h2>
+        <div id="status" class="status">等待选择图片</div>
+        <dl class="result-list">
+          <div>
+            <dt>文件名</dt>
+            <dd id="result-filename">-</dd>
+          </div>
+          <div>
+            <dt>S3 Key</dt>
+            <dd id="result-key">-</dd>
+          </div>
+          <div>
+            <dt>有效期</dt>
+            <dd id="result-expiry">-</dd>
+          </div>
+          <div>
+            <dt>识别结果</dt>
+            <dd id="result-label">-</dd>
+          </div>
+          <div>
+            <dt>置信度</dt>
+            <dd id="result-confidence">-</dd>
+          </div>
+          <div>
+            <dt>记录 ID</dt>
+            <dd id="result-record-id">-</dd>
+          </div>
+        </dl>
+        <section class="prediction-panel" aria-live="polite">
+          <h3>Top 5 识别结果</h3>
+          <ol id="prediction-list" class="prediction-list"></ol>
+          <p id="prediction-empty" class="prediction-empty">识别完成后显示前 5 个分类</p>
+        </section>
+      </aside>
+    </main>
+
+    <script src="{{ url_for('static', filename='upload.js') }}"></script>
+  </body>
+</html>

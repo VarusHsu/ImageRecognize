@@ -1,0 +1,30 @@
+[flask]
+json_as_ascii = false
+max_content_length = 16777216
+
+[server]
+host = "0.0.0.0"
+port = 5001
+debug = true
+
+[aws]
+region = "us-east-1"
+access_key_id = "your-access-key-id"
+secret_access_key = "your-secret-access-key"
+session_token = ""
+
+[s3]
+bucket = "your-bucket-name"
+upload_prefix = "uploads"
+presigned_expires_seconds = 900
+
+[imagenet]
+model = "resnet50"
+
+[database]
+host = "127.0.0.1"
+port = 3306
+user = "root"
+password = ""
+database = "image_recognition"
+charset = "utf8mb4"
